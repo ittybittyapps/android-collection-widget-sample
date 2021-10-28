@@ -12,7 +12,7 @@ This is achieved by limiting the available Views to a subset, called 'RemoteView
 Updates to these views are made by sending an intent to the AppWidgetManager, which in turn requests the widget to update itself, at which point it fetches any new data and re-renders the set of RemoteViews.
 
 
-### List Content updates
+### Triggering List Content updates
 
 Content is updated in multiple ways:
 
@@ -39,7 +39,7 @@ We can also send an Intent to trigger this to update our widget manually.
 
 For the collection-y stuff (ListView), we call `setRemoteAdapter()` from our `WidgetProvider` class. This then ties the `CollectionWidgetService` to the widget. That service then reaches out to `CollectionRemoteViewsFactory`, which acts like a `ListAdapter` for our RemoteViews list. This adapter then creates and binds the `widget_item.xml` layout
 
-To update our _collection_ data, we make a call to `appWidgetManager.notifyAppWidgetViewDataChanged`, which is a bit like calling `noitfyDataSetChanged()` on an adaptr.
+To update our _collection_ data, we make a call to `appWidgetManager.notifyAppWidgetViewDataChanged`, which is a bit like calling `noitfyDataSetChanged()` on an adapter.
 
 The `notifyAppWidgetViewDataChanged()` call triggers the `onDataSetChanged()` callback in `CollectionRemoteViewsFactory`, which is our opportunity to fetch the latest data from our repo, and re-bind the widget's collection view cells.
 
