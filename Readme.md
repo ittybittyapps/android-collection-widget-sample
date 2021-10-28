@@ -50,8 +50,6 @@ The widget grid size, minimum width/height, and whether the widget is resizeable
 
 You can also choose to display a preview image that shows what the widget will look like.
 
-Widgets are limited to utilising only 'RemoteViews'. This means lots of boring Linear/Relative/Frame Layouts, and no fun stuff like ConstraintLayout. We're also limited to TextView, ImageView and only a few other view types.
-
 
 ### Further reading
 
